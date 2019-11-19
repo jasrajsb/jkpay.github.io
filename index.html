@@ -1,454 +1,58 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <title>PUBG Zone | Join Match</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body onload="JKFrontEnd.loaded()">
+    <div id='loading' style='background:  #f3f2f2;'>
+      <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+        <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+      </svg>
+    </div>
+    <div id="main" style='display:none;background:  #f3f2f2; height:100%;'  class="" >
+      <div class="container mx-md-auto my-md-auto mx-0 my-0 px-0 py-0" style='display:flex'>
+        <div class="mx-md-auto my-md-auto mx-0 my-0" style="background:#ffffff">
+          <div class="d-md-none d-block">
+            <img src='https://w.wallhaven.cc/full/2e/wallhaven-2ed77g.jpg' style='max-width:100vw; max-height:65vh'></img>
 
-   <head>
-      <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-<meta name="theme-color" content="#ffffff">
-      <meta charset="utf-8">
-      <!--[if IE]>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <![endif]-->
-      <title>JK RCAM</title>
-      <meta name="description" content="">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      <!-- Place favicon.ico in the root directory -->
-      <link rel="apple-touch-icon" href="apple-touch-icon.png">
-      <link rel="icon" href="favicon.ico">
-      <link href="https://fonts.googleapis.com/css?family=Lato:300,400|Open+Sans:300,400,700" rel="stylesheet">
-      <!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-76592740-11"></script><script>window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-         gtag('config', 'UA-76592740-11');
-      </script>
-      <link rel="stylesheet" href="css/vendor.css">
-      <link rel="stylesheet" href="css/rcam.css">
-   </head>
-   <body>
-      <!--[if lt IE 8]>
-      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-      <![endif]--><!-- < NAVIGATION WITH BACKGROUND COLOR NAVBAR >............................................ --><!-- removed navbar-toggleable-md because responsive issues. Find out why ..... -->
-      <nav class="navbar navbar-expand-md navigation fixed-top sidebar-left">
-         <div class="container">
-            <button class="navbar-toggler" type="button"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a href="#main" class="navbar-brand"><img src="img/llogo.png" alt="JK RCAM" class="logo logo-sticky d-block d-md-none"> <img src="img/logo.png" alt="JK RCAM" class="logo d-none d-md-block"></a>
-            <div class="collapse navbar-collapse ml-auto" id="main-navbar">
-               <div class="sidebar-brand"><a href="#main"><img src="img/llogo.png" alt="JK RCAM" class="logo"></a></div>
-               <ul class="nav navbar-nav ml-auto">
-                  <li class="nav-item"><a class="nav-link scrollto" href="#home">Home</a></li>
-                  <li class="nav-item"><a class="nav-link scrollto" href="#features">Features</a></li>
-                  <li class="nav-item"><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
-                  <li class="nav-item"><a class="nav-link scrollto" href="#download">Download</a></li>
-                  <li class="nav-item"><a class="nav-link scrollto" href="#contact">Contact</a></li>
-               </ul>
-              <!-- <a class="btn btn-rounded btn-solid ml-3 tgl-signup" href="#">Signup</a>-->
-            </div>
-         </div>
-      </nav>
-      <main>
-         <header id="home" class="header section parallax color-1 ">
-            <div class="inner-overlay gradient "></div>
-            <div class="container" style="padding-bottom: 180px;">
-               <div class="row">
-                  <div class="col-12 col-lg-6 pr-0 order-md-2">
-                     <div class="mobile-device mt-5 mt-lg-0 absolute-md center-x-md" data-aos="fade-down">
-                        <div class="screen"><img src="img/screens/app/1.jpg" alt="" class="img-responsive shadow-box"></div>
-                        <span class="button"></span>
-                     </div>
-                  </div>
-                  <div class="col-12 col-lg-4 mx-auto mt-3 mt-md-0">
-                     <h5 class="text-uppercase">RCAM!</h5>
-                     <h1 class="display-4"><span class="d-block">Make it</span> <span class="typed bold"></span></h1>
-                     <div class="hero-text">
-                        <p class="lead">Introducing RCAM to Maximize your Earnings in the best way</p>
-                        <nav class="nav mt-5"><a href="#download" class="nav-link btn btn btn-rounded btn-1 mt-3 mt-md-0 scrollto">Install now</a></nav>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </header>
-        <!--   <section>
-          <div class="container">
-               <div class="row gap-y">
-                  <div class="col-md-3 col-xs-4 col-6 px-md-5"><img src="img/logos/1.svg" alt="" class="img-responsive"></div>
-                  <div class="col-md-3 col-xs-4 col-6 px-md-5"><img src="img/logos/2.svg" alt="" class="img-responsive"></div>
-                  <div class="col-md-3 col-xs-4 col-6 px-md-5"><img src="img/logos/3.svg" alt="" class="img-responsive"></div>
-                  <div class="col-md-3 col-xs-4 col-6 px-md-5"><img src="img/logos/4.svg" alt="" class="img-responsive"></div>
-               </div>
-            </div>
-         </section> -->
-         <section id="features" class="section features reasons b-t bg-6 bg-6-gradient-start">
-            <div class="container">
-               <div class="section-heading text-center">
-                  <h2>Merchants choose RCAM because</h2>
-               </div>
-               <div class="row text-center">
-                  <div class="col-md-4 py-4">
-                     <img src="img/svg/graphic-design.svg" class="icon-xxl m-0 bg-1 rounded-circle p-2 shadow-box" alt="">
-                     <h5 class="regular accent my-3">Top notch technology</h5>
-                     <p class="my-0">Stay at the top of the trends, we have used the latest tools and frameworks to process your recharge fast.</p>
-                  </div>
-                  <div class="col-md-4 py-4">
-                     <img src="img/svg/checklist.svg" class="icon-xxl m-0 bg-1 rounded-circle p-2 shadow-box" alt="">
-                     <h5 class="regular accent my-3">Reduce Recharge time</h5>
-                     <p class="my-0">Because time matters. We have built RCAM to complete the Recharge process as fast as possible.</p>
-                  </div>
-                  <div class="col-md-4 py-4">
-                     <img src="img/svg/startup.svg" class="icon-xxl m-0 bg-1 rounded-circle p-2 shadow-box" alt="">
-                     <h5 class="regular accent my-3">Easy-to-use App</h5>
-                     <p class="my-0">RCAM comes with multiple interfaces which you can recharge 'right out of the box', you just focus on your business.</p>
-                  </div>
-               </div>
-            </div>
-         </section>
-         <!--<section class="singl-testimonial bg-3 color-1">
-            <div class="container py-1">
-               <div class="row gap-y align-items-center">
-                  <div class="col-12 col-md-5 mr-md-auto singl-testimonial-text">
-                     <figure class="logo mb-4"><img src="img/testimonials/5s-logo.png" class="img-responsive" alt=""></figure>
-                     <p class="lead bold mt-0 mb-4">After we've tried every possible template in the market, we found JK and it was the only with all the features we're looking for.</p>
-                     <cite class="bold color-1 alpha-7"><span>Jane Doe,</span> 5Studios Design Lead</cite>
-                  </div>
-                  <div class="col-12 col-md-5 image-background shadow cover singl-testimonial-image" style="background-image: url('img/testimonials/1.jpg');"></div>
-               </div>
-            </div>-->
-         </section>
-         <section class="section">
-            <div class="container">
-               <div class="row gap-y align-items-center text-center text-lg-left">
-                  <div class="col-12 col-md-6 col-lg-5 mr-md-auto">
-                     <div class="mobile-device-twin d-flex align-items-center mt-md-5">
-                        <div class="mockup absolute" data-aos="fade-left">
-                           <div class="screen"><img src="img/screens/app/1.jpg" alt="..."></div>
-                           <span class="button"></span>
-                        </div>
-                        <div class="mobile-device front mr-0">
-                           <div class="screen shadow-box"><img src="img/screens/app/2.jpg" alt="..."></div>
-                           <span class="button"></span>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-12 col-md-6 col-lg-5 text-center text-md-left">
-                     <div class="section-heading">
-                        <h4>Everything you need for a Recharge Business  — without the hassle.</h4>
-                     </div>
-                     <ul class="list-unstyled">
-                        <li class="media flex-column flex-md-row">
-                           <img class="mx-auto mr-md-3 icon icon-lg" src="img/svg/customization.svg" alt="">
-                           <div class="media-body mt-3 mt-md-0">
-                              <h5 class="bold mt-0 mb-1">Easy-to-use App</h5>
-                              <p class="m-0">RCAM comes with multiple interfaces which you can recharge 'right out of the box', you just focus on your business.</p>
-                           </div>
-                        </li>
-                        <li class="media flex-column flex-md-row my-5">
-                           <img class="mx-auto mr-md-3 icon icon-lg" src="img/svg/responsive.svg" alt="">
-                           <div class="media-body mt-3 mt-md-0">
-                              <h5 class="bold mt-0 mb-1">24 x 7 Customer Support</h5>
-                              <p class="m-0">We're here to help with all of your RCAM products. Get support by Call, Chat, Email channels or submit your feedback/complaints to our experts regarding our products and services.</p>
-                           </div>
-                        </li>
-                        <li class="media flex-column flex-md-row">
-                           <img class="mx-auto mr-md-3 icon icon-lg" src="img/svg/code.svg" alt="">
-                           <div class="media-body mt-3 mt-md-0">
-                              <h5 class="bold mt-0 mb-1">99% Uptime Guarantee</h5>
-                              <p class="m-0">We guarantee that our network will be up and functioning 99% of the time per month. We feel a safety net of 1% each month allows us time for repairs and unforeseen events that may arise.</p>
-                           </div>
-                        </li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-         </section>
-         <section class="edge bg-6 b b-t">
-            <div class="container">
-               <!--<div class="section-heading text-center">
-                  <h2>Third party integration</h2>
-                  <p>We use the latest trends because you deserve better</p>
-               </div>
-               <ul class="list-unstyled d-flex flex-wrap justify-content-around">
-                  <li data-aos-easing="ease-in-out-cubic" data-aos="fade-right" data-aos-delay="0" class="shadow-box bg-1 rounded-circle icon-xxl image-background contain mt-6" style="background-image: url(img/svg/developer/1.svg)"></li>
-                  <li data-aos-easing="ease-in-out-cubic" data-aos="fade-down-right" data-aos-delay="100" class="shadow-box bg-1 rounded-circle icon-xxl image-background contain mt-4" style="background-image: url(img/svg/developer/2.svg)"></li>
-                  <li data-aos-easing="ease-in-out-cubic" data-aos="fade-up-right" data-aos-delay="200" class="shadow-box bg-1 rounded-circle icon-xxl image-background contain mt-5" style="background-image: url(img/svg/developer/3.svg)"></li>
-                  <li data-aos-easing="ease-in-out-cubic" data-aos="fade-up" data-aos-delay="300" class="shadow-box bg-1 rounded-circle icon-xxl image-background contain mt-6" style="background-image: url(img/svg/developer/4.svg)"></li>
-                  <li data-aos-easing="ease-in-out-cubic" data-aos="fade-down-left" data-aos-delay="400" class="shadow-box bg-1 rounded-circle icon-xxl image-background contain mt-4" style="background-image: url(img/svg/developer/5.svg)"></li>
-                  <li data-aos-easing="ease-in-out-cubic" data-aos="fade-up-left" data-aos-delay="500" class="shadow-box bg-1 rounded-circle icon-xxl image-background contain mt-5" style="background-image: url(img/svg/developer/6.svg)"></li>
-                  <li data-aos-easing="ease-in-out-cubic" data-aos="fade-left" data-aos-delay="600" class="shadow-box bg-1 rounded-circle icon-xxl image-background contain mt-6" style="background-image: url(img/svg/developer/7.svg)"></li>
-               </ul>-->
-              <!-- <div class="text-center mt-6 mb-5">
-                  <p class="accent">Are you a developer?</p>
-                  <a href="#" class="btn btn-rounded btn-accent">Review the specs</a>
-               </div>-->
-            </div>
-         </section>
-         <section id="pricing" class="bg-3 bg-3-gradient-start">
-            <div class="container bring-to-front pt-0">
-               <div class="row">
-                  <div class="col-md-4 mt-5 mt-md-0">
-                     <div class="card border-0 shadow-box text-center">
-                        <div class="pricing card-header bg-6-gradient d-flex align-items-center flex-column">
-                           <h4>Gold</h4>
-                           <div class="pricing-value"><span class="price bold">500</span></div>
-                           <p>Includes simple but powerful functionality for individuals and small teams. You can upgrade on the way</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                           <li class="list-group-item strike-through">Maximum Margin</li>
-                           <li class="list-group-item strike-through">Priority Support</li>
-                           <li class="list-group-item strike-through">Priority Cashouts</li>
-                           <li class="list-group-item">70% Margin</li>
-                           <li class="list-group-item">Bill Payment Fee: ₹5/ Payment</li>
-                        </ul>
-                        <div class="card-body"><a href="#" class="btn btn-rounded btn-outline-2">Buy now</a></div>
-                     </div>
-                  </div>
-                  <div class="col-md-4 mt-5 mt-md-0">
-                     <div class="card border-0 shadow-box text-center">
-                        <div class="pricing card-header bg-4-gradient color-1 d-flex align-items-center flex-column">
-                           <h4>Platinum</h4>
-                           <div class="pricing-value"><span class="price bold">1000</span></div>
-                           <p>For settle companies looking to stay competitive in the market and growing with the technology</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item strike-through">Maximum Margin</li>
-                          <li class="list-group-item strike-through">Priority Support</li>
-                          <li class="list-group-item ">Priority Cashouts</li>
-                          <li class="list-group-item">95% Margin</li>
-                          <li class="list-group-item">Bill Payment Fee: ₹5/ Payment</li>
-                        </ul>
-                        <div class="card-body"><a href="#" class="btn btn-rounded btn-4">Buy now</a></div>
-                     </div>
-                  </div>
-                  <div class="col-md-4 mt-5 mt-md-0">
-                     <div class="card border-0 shadow-box text-center">
-                        <div class="pricing card-header bg-6-gradient d-flex align-items-center flex-column">
-                           <h4>Diamond</h4>
-                           <div class="pricing-value"><span class="price bold">5000</span></div>
-                           <p>All you can get from a professional solution to keep your business on its way to success</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item ">Maximum Margin</li>
-                          <li class="list-group-item ">Priority Support</li>
-                          <li class="list-group-item ">Priority Cashouts</li>
-                          <li class="list-group-item">100% Margin</li>
-                          <li class="list-group-item">Bill Payment Fee: ₹0/ Payment</li>
-                        </ul>
-                        <div class="card-body"><a href="#" class="btn btn-rounded btn-outline-2">Buy now</a></div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
-         <section class="bg-3-gradient color-1 alpha-6">
-            <div class="container">
-               <div class="section-heading text-center">
-                  <h2 class="color-1 bold">All our plans include</h2>
-               </div>
-               <div class="row gap-y text-center text-md-left">
-                  <div class="col-md-4">
-                     <img src="img/svg/headset.svg" class="icon m-0" alt="">
-                     <h5 class="color-1 regular my-3">First class support</h5>
-                     <p class="my-0">We're here to help with all of your RCAM products. Get support by Call, Chat, Email channels or submit your feedback/complaints to our experts regarding our products and services.</p>
-                  </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 d-md-flex d-none" style='overflow: hidden;
+    DISPLAY: flex;
+    justify-content: center;'>
+              <img src='https://w.wallhaven.cc/full/2e/wallhaven-2ed77g.jpg' style='max-width:60vw; max-height:75vh'></img>
 
+            </div>
+            <div class="col-md-8">
 
-                  <div class="col-md-4">
-                     <img src="img/svg/responsive.svg" class="icon m-0" alt="">
-                     <h5 class="color-1 regular my-3">99% Uptime Guarantee</h5>
-                     <p class="my-0">We guarantee that our network will be up and functioning 99% of the time per month. We feel a safety net of 1% each month allows us time for repairs and unforeseen events that may arise.</p>
-                  </div>
-
-                  <div class="col-md-4">
-                     <img src="img/svg/ootb.svg" class="icon m-0" alt="">
-                     <h5 class="color-1 regular my-3">Easy-to-use App</h5>
-                     <p class="my-0">RCAM comes with multiple interfaces which you can recharge 'right out of the box', you just focus on your business.</p>
-                  </div>
-               </div>
             </div>
-         </section>
-         <section id="screenshots" class="screenshots coverflow bg-6 edge">
-            <div class="container">
-               <div class="section-heading text-center">
-                  <h2>RCAM screenshots</h2>
-               </div>
-               <div class="swiper-container" data-sw-show-items="auto" data-sw-centered-slides="true" data-sw-cover-depth="100">
-                  <div class="mobile-device mx-auto">
-                     <div class="screen shadow-box"></div>
-                  </div>
-                  <div class="swiper-wrapper">
-                     <div class="swiper-slide"><img class="img-responsive" src="img/screens/app/1.jpg" alt="..."></div>
-                     <div class="swiper-slide"><img class="img-responsive" src="img/screens/app/2.jpg" alt="..."></div>
-                     <div class="swiper-slide"><img class="img-responsive" src="img/screens/app/3.jpg" alt="..."></div>
-                     <div class="swiper-slide"><img class="img-responsive" src="img/screens/app/4.jpg" alt="..."></div>
-
-                  </div>
-                  <div class="swiper-pagination"></div>
-               </div>
-            </div>
-         </section>
-         <!--<section class="bg-1 edge">
-            <div class="container bring-to-front">
-               <div class="row gap-y align-items-center">
-                  <div class="col-md-6"><a href="#"><img src="img/screens/section/1.jpg" class="img-responsive" alt=""></a></div>
-                  <div class="col-md-5 ml-md-auto text-center text-md-left">
-                     <h2>Browser compatibility</h2>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi commodi eligendi esse et eveniet ex exercitationem facere, labore molestias nostrum nulla obcaecati omnis perspiciatis quae qui reprehenderit sapiente sunt vel.</p>
-                     <a href="#" class="btn btn-rounded btn-accent mt-4">Experience this</a>
-                  </div>
-               </div>
-            </div>
-            <div class="container">
-               <div class="row gap-y align-items-center">
-                  <div class="col-md-6 order-md-2"><a href="#"><img src="img/screens/section/2.jpg" class="img-responsive" alt=""></a></div>
-                  <div class="col-md-5 mr-md-auto text-center text-md-right">
-                     <h2>Easy customizable</h2>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto delectus dolor est ipsam, itaque obcaecati omnis perspiciatis ullam vero voluptatum? Ab commodi delectus, hic iure perferendis placeat? Adipisci, laboriosam, nobis.</p>
-                     <a href="#" class="btn btn-rounded btn-accent mt-4">Experience this</a>
-                  </div>
-               </div>
-            </div>
-         </section>-->
-         <section id="download" class="download bg-6-gradient-start">
-            <div class="container bring-to-front text-center">
-               <div class="shadow bg-4 color-1 p-5 rounded">
-                  <div class="section-heading">
-                     <h2>Download <span class="bold">RCAM</span> Now!</h2>
-                     <p class="color-1 alpha-5">Download our app today and get the party started! Android App Available on Google Drive.</p>
-                  </div>
-                  <nav class="nav flex-column flex-md-row justify-content-center align-items-center mt-5">
-                     <!--<a href="#" class="nav-link py-2 px-4 btn btn-rounded btn-download btn-5 color-1 alpha-3 mr-0 mr-md-4 mb-4 mb-md-0">
-                        <img src="img/svg/apple.svg" class="icon icon-md" alt="...">
-                        <p class="ml-2"><span class="small bold">Get it on the</span> <span class="d-block bold color-1">App Store</span></p>
-                     </a>-->
-                     <a href="https://rcam.ml/rcam.apk" class="nav-link py-2 px-4 btn btn-rounded btn-download btn-5 color-1 alpha-3">
-                        <img src="img/svg/google-play.svg" class="icon icon-md" alt="...">
-                        <p class="ml-2"><span class="small bold">Download on the</span> <span class="d-block bold color-1">Google Drive</span></p>
-                     </a>
-                  </nav>
-               </div>
-            </div>
-         </section>
-         <section id="contact" class="bg-6-gradient">
-            <div class="container">
-               <div class="row gap-y">
-                  <div class="col-12 col-md-5 ml-md-auto order-md-2">
-                     <p class="text-uppercase">Contact us</p>
-                     <h2 class="display-4 mb-5">We'd like to hear from you</h2>
-                     <p class="lead mb-5">Don't hesitate to get in contact with us no matter your request. We are here to help you.</p>
-                     <ul class="list-unstyled list-icon">
-                        <li>
-                           <i class="fa-map-marker"></i>
-                           <p>110/24, Station Road, Durg, India</p>
-                        </li>
-                        <li>
-                           <i class="fa-phone"></i>
-                           <p>+91 7000138371</p>
-                        </li>
-                        <li>
-                           <i class="fa-envelope"></i>
-                           <p><a href="mailto:hello@jktech.cf">hello@jktech.cf</a></p>
-                        </li>
-                     </ul>
-                  </div>
-                  <div class="col-12 col-md-5">
-                     <form action="https://rcam.herokuapp.com/contact" method="post" class="form form-contact" name="form-contact" data-response-message-animation="slide-in-up">
-                        <div class="form-group"><label for="contact_email">Email address</label> <input type="email" name="Contact[email]" id="contact_email" class="form-control bg-1" placeholder="Valid Email" required> <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small></div>
-                        <div class="form-group"><label for="contact_email">Subject</label> <input type="text" name="Contact[subject]" id="contact_subject" class="form-control bg-1" placeholder="Subject" required></div>
-                        <div class="form-group"><label for="contact_email">Message</label> <textarea name="Contact[message]" id="contact_message" class="form-control bg-1" placeholder="What do you want to let us know?" rows="8" required></textarea></div>
-                        <div class="form-group"><button id="contact-submit" data-loading-text="Sending..." name="submit" type="submit" class="btn btn-accent btn-rounded">Send Message</button></div>
-                     </form>
-                     <div class="response-message">
-                        <div class="section-heading">
-                           <i class="fa-thumbs-o-up font-lg mb-2"></i>
-                           <h2 class="bold">Thank you!!!</h2>
-                           <p class="response">Your message has been send, we will contact you as soon as possible.</p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
-         <section>
-            <div class="container">
-               <div class="row">
-                  <div class="col-12 col-md-4">
-                     <h2>Do you have <span class="bold">questions</span></h2>
-                     <p class="lead">Not sure how this App can help you? Wonder why you need to buy our App?</p>
-                     <p class="text-muted">Here are the answers to some of the most common questions we hear from our appreciated customers</p>
-                  </div>
-                  <div class="col-12 col-md-8">
-                     <div class="card mb-3">
-                        <div class="p-3">
-                           <h5 class="mb-0"><a href="#" data-toggle="collapse" data-target="#q1">What does the package include?</a></h5>
-                        </div>
-                        <div id="q1" class="collapse show">
-                           <div class="card-body">When you Activate your JK RCAM Account, you get all you see in the demo but the images. Which includes but is not limited to Prepaid Recharge, Postpaid Bill Payment, DTH Recharge, Electricity Bill Payment and Landline Bill Payments . Besides also offer an introductory Refer and Earn Scheme.</div>
-                        </div>
-                     </div>
-                     <div class="card mb-3">
-                        <div class="p-3">
-                           <h5 class="mb-0"><a href="#" class="collapsed" data-toggle="collapse" data-target="#q2">What is the typical response time for a support question?</a></h5>
-                        </div>
-                        <div id="q2" class="collapse">
-                           <div class="card-body">Since you report us a support question we try to make our best to find out what is going on, depending on the case it could take more or les time, however a standard time could be minutes or hours.</div>
-                        </div>
-                     </div>
-
-                     <div class="card">
-                        <div class="p-3">
-                           <h5 class="mb-0"><a href="#" class="collapsed" data-toggle="collapse" data-target="#q4">Can I suggest a new feature?</a></h5>
-                        </div>
-                        <div id="q4" class="collapse">
-                           <div class="card-body">Definitely <span class="bold">Yes</span>, you can contact us to let us know your needs. If your suggestion represents any value to both we can include it as a part of the theme or you can request a custom build by an extra cost. Please note it could take some time in order for the feature to be implemented.</div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
-      </main>
-      <!-- FOOTER -->
-      <footer class="site-footer section b-t">
-         <div class="container pb-3">
-            <div class="row gap-y text-center text-md-left">
-               <div class="col-md-5 mr-auto">
-                  <img src="img/llogo.png" alt="">
-                  <p class="color-2 alpha-5">JK RCAM is carefully crafted and powerful Recharge App for Merchants. It's perfect for Phone Dealers and General Stores</p>
-                  <nav class="nav mt-3 color-3 justify-content-center justify-content-md-start"><a class="nav-link pl-0" href="#"><i class="fa-facebook"></i></a> <a class="nav-link" href="#"><i class="fa-twitter"></i></a>  <a class="nav-link" href="#"><i class="fa-instagram"></i></a></nav>
-               </div>
-               <div class="col-md-2">
-                  <h6 class="bold text-uppercase">Product</h6>
-                  <nav class="nav flex-column mt-3"><a href="#">Features</a> <a href="#" class="mt-2">API</a> <a href="#" class="mt-2">Customers</a> <a href="#" class="mt-2">Support</a></nav>
-               </div>
-              <!-- <div class="col-md-2">
-                  <h6 class="bold text-uppercase">Blog Pages</h6>
-                  <nav class="nav flex-column mt-3"><a href="blog.html">Blog</a> <a href="blog-post.html" class="mt-2">Single Post</a> <a href="blog-list-sidebar-left.html" class="mt-2">Sidebar Left</a> <a href="blog-post-sidebar-left.html" class="mt-2">Single Post</a></nav>
-               </div>-->
-            </div>
-            <hr class="mt-5 bg-6">
-            <div class="row small align-items-center">
-               <div class="col-md-4">
-                  <p class="mt-2 mb-0">© 2018 JK RCAM. All Rights Reserved</p>
-               </div>
-            </div>
-         </div>
-      </footer>
-
-
+          </div>
+        </div>
       </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src='./components.js'></script>
+    <script type="text/javascript">
 
-      <script src="js/lib.js"></script><script src="js/rcam.js"></script>
-   </body>
 
+
+
+      var JKFrontEnd = {}
+      JKFrontEnd.load = function(url) {
+        $('load').show();
+        $('main').hide();
+      }
+      JKFrontEnd.loaded = function(){
+        console.log('hello');
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('main').style.display = 'flex';
+      }
+    </script>
+  </body>
 </html>
